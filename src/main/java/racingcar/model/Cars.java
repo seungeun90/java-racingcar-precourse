@@ -12,15 +12,18 @@ public class Cars {
 
     public Cars(){}
 
-    public void move(MovingStrategy movingStrategy) {
+    public List<Position> move(MovingStrategy movingStrategy) {
+        List<Position> list = new ArrayList<>();
         for(Car car : cars){
-            car.move(movingStrategy);
+            list.add(car.move(movingStrategy));
         }
+        return list;
     }
 
     public Car getCar(int idx){
         return cars.get(idx);
     }
+    public int size() {return cars.size();}
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;

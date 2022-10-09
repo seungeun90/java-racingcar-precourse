@@ -12,10 +12,11 @@ public class Car {
         this.position = new Position(0);
     }
 
-    public void move(MovingStrategy movingStrategy){
+    public Position move(MovingStrategy movingStrategy){
         if(movingStrategy.isMovable()){
              this.position.moveForward();
         }
+        return this.position;
     }
     public Name getName() {
         return name;
