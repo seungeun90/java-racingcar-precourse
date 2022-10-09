@@ -10,7 +10,7 @@ public class Position {
     }
 
     private void validatePosition(int position) {
-        if(position < 0 ) throw  new IllegalArgumentException("[Error] 자동차의 위치는 0 이상이여야합니다.");
+        if(position < 0 ) throw  new IllegalArgumentException("[ERROR] 자동차의 위치는 0 이상이여야합니다.");
     }
     public void moveForward(){
          this.position += 1;

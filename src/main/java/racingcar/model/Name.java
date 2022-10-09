@@ -11,7 +11,7 @@ public class Name {
     }
     public void validationName(String name){
         if (name.length() <= 0 || name.length() >= 6) {
-            throw new IllegalArgumentException("[Error] 차 이름은 1자 이상 5자 이하로 가능합니다.");
+            throw new IllegalArgumentException("[ERROR] 차 이름은 1자 이상 5자 이하로 가능합니다.");
         }
     }
 
@@ -26,5 +26,10 @@ public class Name {
     @Override
     public int hashCode() {
         return Objects.hash(name);
+    }
+
+    @Override
+    public String toString() {
+        return this.name;
     }
 }
