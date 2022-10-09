@@ -7,7 +7,6 @@ import org.junit.jupiter.api.Test;
 import static org.assertj.core.api.Assertions.assertThat;
 
 public class CarTest {
-
     @Test
     @DisplayName("자동차를 생성한다.")
     public void create_car() {
@@ -21,11 +20,11 @@ public class CarTest {
     public void create_Car_withNameException() {
         Assertions.assertThatThrownBy(() -> new Car(new Name("")))
                 .isExactlyInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[Error] 차 이름은 1자 이상 5자 이하로 가능합니다.");
+                .hasMessage("[ERROR] 차 이름은 1자 이상 5자 이하로 가능합니다.");
 
         Assertions.assertThatThrownBy(() -> new Car(new Name("carAAA")))
                 .isExactlyInstanceOf(IllegalArgumentException.class)
-                .hasMessage("[Error] 차 이름은 1자 이상 5자 이하로 가능합니다.");
+                .hasMessage("[ERROR] 차 이름은 1자 이상 5자 이하로 가능합니다.");
     }
 
     @Test
