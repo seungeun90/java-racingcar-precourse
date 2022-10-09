@@ -12,11 +12,12 @@ public class Position {
     private void validatePosition(int position) {
         if(position < 0 ) throw  new IllegalArgumentException("[Error] 자동차의 위치는 0 이상이여야합니다.");
     }
-    public Position moveForward(){
-        return new Position(this.position+1);
+    public void moveForward(){
+         this.position += 1;
     }
-    public Position stop(){
-        return this;
+
+    public int getPosition() {
+        return position;
     }
 
     @Override
