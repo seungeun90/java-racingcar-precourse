@@ -32,21 +32,33 @@ public class CarTest {
     @DisplayName("자동차 위치를 앞으로 이동한다.")
     public void moveForward() {
         Car car = new Car(new Name("carA"));
-        Car car1 = car.moveForward();
-        assertThat(car1.getPosition()).isEqualTo(new Position(1));
-        Car car2 = car1.moveForward();
-        assertThat(car2.getPosition()).isEqualTo(new Position(2));
+        RandomMoveStrategy strategy = new RandomMoveStrategy(){
+            @Override
+            protected int getRandomNumber() {
+                return 9;
+            }
+        };
+        car.move(strategy);
+        assertThat(car.getPosition()).isEqualTo(new Position(1));
+
+        car.move(strategy);
+        assertThat(car.getPosition()).isEqualTo(new Position(2));
     }
 
     @Test
     @DisplayName("자동차를 멈추면 위치가 변하지 않는다.")
     public void moveBackward_oneTime() {
         Car car = new Car(new Name("carA"));
-        Car car1 = car.stop();
-        assertThat(car1.getPosition()).isEqualTo(new Position(0));
-
-        Car car2 = car.moveForward().moveForward().stop();
-        assertThat(car2.getPosition()).isEqualTo(new Position(2));
+        RandomMoveStrategy strategy = new RandomMoveStrategy(){
+            @Override
+            protected int getRandomNumber() {
+                return 3;
+            }
+        };
+        car.move(strategy);
+        assertThat(car.getPosition()).isEqualTo(new Position(0));
+        car.move(strategy);
+        assertThat(car.getPosition()).isEqualTo(new Position(0));
     }
 
 
